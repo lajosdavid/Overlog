@@ -997,6 +997,12 @@ internal final class Keychain {
 
             if let key = attributes[AttributeAccount] as? String {
                 item["key"] = key
+            } else if let key = attributes[AttributeAccount] as? Data {
+                if let text = String(data: key, encoding: .utf8) {
+                    item["key"] = text
+                } else  {
+                    item["key"] = key
+                }
             }
             if let data = attributes[ValueData] as? Data {
                 if let text = String(data: data, encoding: .utf8) {
