@@ -55,11 +55,11 @@ extension KeychainViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: KeyValueEntryCell.self), for: indexPath) as! KeyValueEntryCell
         let item = items[indexPath.row]
-        
-        let valueText = "value".localized + ": " + item.value
-        let keyText = "key".localized + ": " + item.key
-        cell.keyLabel.text = valueText
-        cell.valueLabel.text = keyText
+
+        let keyText = item.key
+        let valueText = item.value
+        cell.keyLabel.text = keyText
+        cell.valueLabel.text = valueText
         return cell
     }
 }
